@@ -3,7 +3,7 @@
   "Name": "Microphone Mute",
   "Description": "Toggle a Windows capture device or role-specific default microphone.",
   "Icon": "assets/plugin.svg",
-  "Version": "0.1.0",
+  "Version": "0.1.1",
   "Category": "Audio",
   "CategoryIcon": "assets/category.svg",
   "CodePath": "dist/plugin.js",

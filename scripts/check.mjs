@@ -2,6 +2,7 @@ import { execFileSync } from "node:child_process";
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { includesCompleteLicense } from "./license-notice.mjs";
 
 const pluginSegment = "arkamax404micmute";
 const pluginName = `com.ulanzi.${pluginSegment}.ulanziPlugin`;
@@ -30,8 +31,8 @@ for (const action of manifest.Actions) {
 }
 
 const thirdPartyNotice = readFileSync(new URL("THIRD_PARTY_NOTICES.md", pluginRoot), "utf8");
-const wsLicense = readFileSync(new URL("../node_modules/ws/LICENSE", import.meta.url), "utf8").trim();
-if (!thirdPartyNotice.includes(wsLicense)) throw new Error("Third-party notices must include the complete ws MIT license");
+const wsLicense = readFileSync(new URL("../node_modules/ws/LICENSE", import.meta.url), "utf8");
+if (!includesCompleteLicense(thirdPartyNotice, wsLicense)) throw new Error("Third-party notices must include the complete ws MIT license");
 
 function javascriptFiles(directory) {
   return readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
