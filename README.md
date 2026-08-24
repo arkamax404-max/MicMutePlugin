@@ -31,7 +31,7 @@ A fixed device never falls back to another microphone. If Windows removes or dis
 
 | Component | Responsibility |
 | --- | --- |
-| `dist/plugin.cjs` | Bundled Node main service using verified Ulanzi host events and one process manager for all action contexts. |
+| `dist/plugin.js` | Bundled Node main service using verified Ulanzi host events and one process manager for all action contexts. |
 | Property Inspector | Persists target mode, default role, and opaque fixed endpoint ID; requests live capture-device lists through the host. |
 | `native/micmute-helper.exe` | C++20 Windows x64 JSON Lines service using `IMMDeviceEnumerator` and `IAudioEndpointVolume`. |
 | JSON Lines protocol | Supports `list`, `status`, `toggle`, and `shutdown`; responses carry request IDs and structured errors. |

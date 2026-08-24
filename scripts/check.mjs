@@ -1,5 +1,5 @@
 import { execFileSync } from "node:child_process";
-import { readdirSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -18,6 +18,8 @@ if (manifest.UUID !== pluginUuid || !/^com\.ulanzi\.ulanzistudio\.[A-Za-z0-9_-]+
   throw new Error("Manifest UUID must have the official four-segment shape");
 }
 if (manifest.Type !== "JavaScript") throw new Error("Manifest Type must be JavaScript");
+if (manifest.CodePath !== "dist/plugin.js") throw new Error("Manifest CodePath must use the Ulanzi-supported .js Node entry point");
+if (existsSync(new URL("dist/plugin.cjs", pluginRoot))) throw new Error("Obsolete dist/plugin.cjs must be removed");
 if (!Array.isArray(manifest.Actions) || manifest.Actions.length === 0) throw new Error("Manifest needs an action");
 for (const action of manifest.Actions) {
   const actionSuffix = action.UUID.slice(manifest.UUID.length + 1);

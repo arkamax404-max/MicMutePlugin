@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build": "npm run build:node && npm run build:native",
-    "build:node": "esbuild src/plugin/main.js --bundle --platform=node --target=node20.12 --format=cjs --outfile=com.ulanzi.arkamax404micmute.ulanziPlugin/dist/plugin.cjs",
+    "build:node": "esbuild src/plugin/main.js --bundle --platform=node --target=node20.12 --format=cjs --outfile=com.ulanzi.arkamax404micmute.ulanziPlugin/dist/plugin.js",
     "build:native": "node scripts/build-native.mjs",
     "check": "node scripts/check.mjs",
     "test": "node --test",

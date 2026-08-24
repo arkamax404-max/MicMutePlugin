@@ -6,10 +6,11 @@ import yazl from "yazl";
 const pluginName = "com.ulanzi.arkamax404micmute.ulanziPlugin";
 const pluginRoot = new URL(`../${pluginName}/`, import.meta.url);
 const pluginPath = fileURLToPath(pluginRoot);
-const required = ["manifest.json", "dist/plugin.cjs", "native/micmute-helper.exe", "THIRD_PARTY_NOTICES.md"];
+const required = ["manifest.json", "dist/plugin.js", "native/micmute-helper.exe", "THIRD_PARTY_NOTICES.md"];
 for (const file of required) {
   if (!existsSync(new URL(file, pluginRoot))) throw new Error(`Build output is missing: ${file}`);
 }
+if (existsSync(new URL("dist/plugin.cjs", pluginRoot))) throw new Error("Obsolete build output must be removed: dist/plugin.cjs");
 
 const releaseDir = new URL("../release/", import.meta.url);
 mkdirSync(releaseDir, { recursive: true });

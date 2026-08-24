@@ -6,7 +6,7 @@
   "Version": "0.1.0",
   "Category": "Audio",
   "CategoryIcon": "assets/category.svg",
-  "CodePath": "dist/plugin.cjs",
+  "CodePath": "dist/plugin.js",
   "Type": "JavaScript",
   "PrivateAPI": false,
   "UUID": "com.ulanzi.ulanzistudio.arkamax404micmute",
