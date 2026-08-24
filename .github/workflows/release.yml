@@ -1,0 +1,35 @@
+name: Build release asset
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  windows-x64:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20.12.2
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - run: npm test
+      - run: npm run build
+      - run: npm run test:native
+      - run: npm run package
+      - uses: actions/upload-artifact@v4
+        with:
+          name: com.ulanzi.arkamax404micmute.ulanziPlugin
+          path: release/com.ulanzi.arkamax404micmute.ulanziPlugin.zip
+      - name: Attach Community Store asset
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: release/com.ulanzi.arkamax404micmute.ulanziPlugin.zip

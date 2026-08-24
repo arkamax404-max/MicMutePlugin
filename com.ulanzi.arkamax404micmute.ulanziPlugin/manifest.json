@@ -1,0 +1,36 @@
+{
+  "Author": "Santiago Pérez",
+  "Name": "Microphone Mute",
+  "Description": "Toggle a Windows capture device or role-specific default microphone.",
+  "Icon": "assets/plugin.svg",
+  "Version": "0.1.0",
+  "Category": "Audio",
+  "CategoryIcon": "assets/category.svg",
+  "CodePath": "dist/plugin.cjs",
+  "Type": "JavaScript",
+  "PrivateAPI": false,
+  "UUID": "com.ulanzi.ulanzistudio.arkamax404micmute",
+  "Actions": [
+    {
+      "Name": "Toggle Microphone",
+      "Icon": "assets/action.svg",
+      "PropertyInspectorPath": "property-inspector/micmute/inspector.html",
+      "state": 2,
+      "States": [
+        { "Name": "Muted", "Image": "assets/muted.svg" },
+        { "Name": "Live", "Image": "assets/live.svg" },
+        { "Name": "Unavailable", "Image": "assets/unavailable.svg" }
+      ],
+      "Tooltip": "Toggle microphone mute",
+      "UUID": "com.ulanzi.ulanzistudio.arkamax404micmute.toggle",
+      "SupportedInMultiActions": false,
+      "DisableAutomaticStates": true,
+      "Controllers": ["Keypad"],
+      "Devices": ["D200"]
+    }
+  ],
+  "OS": [
+    { "Platform": "windows", "MinimumVersion": "10" }
+  ],
+  "Software": { "MinVersion": "2.1.4" }
+}

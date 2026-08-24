@@ -1,0 +1,8 @@
+node_modules/
+build/
+release/
+com.ulanzi.ulanzistudio.micmute.ulanziPlugin/dist/
+com.ulanzi.ulanzistudio.micmute.ulanziPlugin/native/*.exe
+*.user
+*.suo
+*.VC.db

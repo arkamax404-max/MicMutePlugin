@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Microphone Mute settings</title>
+  <link rel="stylesheet" href="inspector.css">
+</head>
+<body>
+  <main class="panel" aria-busy="true">
+    <header>
+      <span class="eyebrow">WINDOWS CAPTURE</span>
+      <h1>Microphone target</h1>
+    </header>
+    <form id="settings">
+      <fieldset>
+        <legend>Selection mode</legend>
+        <label class="choice"><input type="radio" name="targetMode" value="default" checked> Follow a Windows default</label>
+        <label class="choice"><input type="radio" name="targetMode" value="specific"> Use one fixed device</label>
+      </fieldset>
+      <label id="role-field">Default role
+        <select name="defaultRole">
+          <option value="console">Console</option>
+          <option value="multimedia">Multimedia</option>
+          <option value="communications">Communications</option>
+        </select>
+      </label>
+      <label id="device-field" hidden>Capture device
+        <select name="deviceId" disabled><option value="">Loading devices...</option></select>
+      </label>
+      <output id="status" role="status">Connecting to audio service...</output>
+    </form>
+  </main>
+  <script src="../lib/host-api.js"></script>
+  <script src="inspector.js"></script>
+</body>
+</html>

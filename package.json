@@ -1,0 +1,25 @@
+{
+  "name": "arkamax404-micmute",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20.12.2"
+  },
+  "scripts": {
+    "build": "npm run build:node && npm run build:native",
+    "build:node": "esbuild src/plugin/main.js --bundle --platform=node --target=node20.12 --format=cjs --outfile=com.ulanzi.arkamax404micmute.ulanziPlugin/dist/plugin.cjs",
+    "build:native": "node scripts/build-native.mjs",
+    "check": "node scripts/check.mjs",
+    "test": "node --test",
+    "test:native": "node scripts/smoke-helper.mjs",
+    "package": "node scripts/package.mjs"
+  },
+  "dependencies": {
+    "ws": "8.21.3"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.9",
+    "yazl": "3.3.1"
+  }
+}
